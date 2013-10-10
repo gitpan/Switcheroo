@@ -32,7 +32,7 @@
 	doap:maintainer      <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:name            "Switcheroo";
 	doap:programming-language "Perl";
-	doap:release         <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-006>;
+	doap:release         <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-007>;
 	doap:repository      [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-switcheroo>;
@@ -144,6 +144,27 @@
 	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Switcheroo-0.006.tar.gz>;
 	doap:revision        "0.006"^^xsd:string.
+
+<http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-007>
+	a                    doap:Version;
+	rdfs:label           "Bond, James Bond";
+	dc:identifier        "Switcheroo-0.007"^^xsd:string;
+	dc:issued            "2013-10-10"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Change;
+			rdfs:label "Improve support for using @_ within switch blocks.";
+		], [
+			a doap-changeset:Tests;
+			rdfs:label "More test cases for using @_ within switch blocks.";
+		], [
+			a doap-changeset:Tests;
+			rdfs:label "Test cases for closing over variables.";
+		];
+	];
+	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Switcheroo-0.007.tar.gz>;
+	doap:revision        "0.007"^^xsd:string.
 
 <http://purl.org/NET/cpan-uri/person/tobyink>
 	a                    foaf:Person;

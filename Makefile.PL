@@ -32,7 +32,7 @@ my $meta = {
                                      },
                         test      => { requires => { "Test::More" => 0.96 } },
                       },
-  "provides"       => { Switcheroo => { file => "lib/Switcheroo.pm", version => 0.006 } },
+  "provides"       => { Switcheroo => { file => "lib/Switcheroo.pm", version => 0.007 } },
   "release_status" => "stable",
   "resources"      => {
                         bugtracker   => { web => "http://rt.cpan.org/Dist/Display.html?Queue=Switcheroo" },
@@ -41,7 +41,7 @@ my $meta = {
                         repository   => { type => "git", web => "https://github.com/tobyink/p5-switcheroo" },
                         X_identifier => "http://purl.org/NET/cpan-uri/dist/Switcheroo/project",
                       },
-  "version"        => 0.006,
+  "version"        => 0.007,
 };
 
 my %dynamic_config;

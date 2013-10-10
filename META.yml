@@ -25,7 +25,7 @@ optional_features: {}
 provides:
   Switcheroo:
     file: lib/Switcheroo.pm
-    version: 0.006
+    version: 0.007
 requires:
   Devel::Caller: 0
   Devel::LexAlias: 0.05
@@ -40,4 +40,4 @@ resources:
   homepage: https://metacpan.org/release/Switcheroo
   license: http://dev.perl.org/licenses/
   repository: https://github.com/tobyink/p5-switcheroo
-version: 0.006
+version: 0.007

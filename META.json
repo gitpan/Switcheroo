@@ -55,7 +55,7 @@
    "provides" : {
       "Switcheroo" : {
          "file" : "lib/Switcheroo.pm",
-         "version" : "0.006"
+         "version" : "0.007"
       }
    },
    "release_status" : "stable",
@@ -73,5 +73,5 @@
          "web" : "https://github.com/tobyink/p5-switcheroo"
       }
    },
-   "version" : "0.006"
+   "version" : "0.007"
 }
