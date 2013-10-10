@@ -39,7 +39,7 @@
          "requires" : {
             "Devel::Caller" : "0",
             "Devel::LexAlias" : "0.05",
-            "Exporter" : "5.57",
+            "Exporter::Tiny" : "0.026",
             "PadWalker" : "0",
             "Parse::Keyword" : "0.06",
             "match::simple" : "0.004",
@@ -55,7 +55,7 @@
    "provides" : {
       "Switcheroo" : {
          "file" : "lib/Switcheroo.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       }
    },
    "release_status" : "stable",
@@ -73,5 +73,5 @@
          "web" : "https://github.com/tobyink/p5-switcheroo"
       }
    },
-   "version" : "0.005"
+   "version" : "0.006"
 }

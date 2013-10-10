@@ -69,6 +69,13 @@ DESCRIPTION
           default:          say "an even number";
        }
 
+  Regexp Expressions
+    If this module encounters:
+
+       switch ($foo) { case /foo/: say "foo" }
+
+    Don't worry; we know you meant `qr/foo/` and not `m/foo/`.
+
   Statement blocks
     If the first non-whitespace character is `{`, the statement is treated as
     a block rather than a single statement:

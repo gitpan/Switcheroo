@@ -15,7 +15,9 @@
 	doap-deps:develop-recommendation [ doap-deps:on "Dist::Inkt 0.001"^^doap-deps:CpanId ];
 	doap-deps:runtime-requirement [ doap-deps:on "perl 5.014"^^doap-deps:CpanId ], [ doap-deps:on "Devel::Caller"^^doap-deps:CpanId ], [
 		doap-deps:on "Devel::LexAlias 0.05"^^doap-deps:CpanId;
-	], [ doap-deps:on "Exporter 5.57"^^doap-deps:CpanId ], [
+	], [
+		doap-deps:on "Exporter::Tiny 0.026"^^doap-deps:CpanId;
+	], [
 		doap-deps:on "match::simple 0.004"^^doap-deps:CpanId;
 	], [ doap-deps:on "PadWalker"^^doap-deps:CpanId ], [
 		doap-deps:on "Parse::Keyword 0.06"^^doap-deps:CpanId;
@@ -30,7 +32,7 @@
 	doap:maintainer      <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:name            "Switcheroo";
 	doap:programming-language "Perl";
-	doap:release         <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-005>;
+	doap:release         <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-006>;
 	doap:repository      [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-switcheroo>;
@@ -125,6 +127,23 @@
 	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Switcheroo-0.005.tar.gz>;
 	doap:revision        "0.005"^^xsd:string.
+
+<http://purl.org/NET/cpan-uri/dist/Switcheroo/v_0-006>
+	a                    doap:Version;
+	dc:identifier        "Switcheroo-0.006"^^xsd:string;
+	dc:issued            "2013-10-10"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Change;
+			rdfs:label "Sugar for regexps in case expressions.";
+		], [
+			a doap-changeset:Change;
+			rdfs:label "Export using Exporter::Tiny.";
+		];
+	];
+	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Switcheroo-0.006.tar.gz>;
+	doap:revision        "0.006"^^xsd:string.
 
 <http://purl.org/NET/cpan-uri/person/tobyink>
 	a                    foaf:Person;
