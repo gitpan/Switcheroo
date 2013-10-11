@@ -5,16 +5,14 @@ use warnings;
 package Switcheroo;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.007';
+our $VERSION   = '0.008';
 our @EXPORT    = qw( switch );
 our @EXPORT_OK = qw( match );
 our @ISA       = qw( Exporter::Tiny );
 
-use Devel::Caller qw( caller_args );
-use Devel::LexAlias qw( lexalias );
 use Exporter::Tiny qw( );
 use match::simple qw( match );
-use PadWalker qw( peek_my );
+use PadWalker qw( peek_my set_closed_over );
 use Parse::Keyword { switch => \&_parse_switch };
 
 sub import
@@ -28,12 +26,15 @@ sub switch
 {
 	my ($pkg, $expr, $comparator, $cases, $default) = @_;
 	
-	my @args = @_ = caller_args(1);
+	my @args = @_ = do {
+		package # replaces Devel::Caller::caller_args(1)
+		DB; my @x = caller(1); our @args;
+	};
 	
 	my $pad = peek_my(1);
 	my $var = defined($expr)
 		? do {
-			lexalias($expr, $_, $pad->{$_}) for keys %$pad;
+			set_closed_over($expr, $pad);
 			$expr->(@args);
 		}
 		: $_;
@@ -58,26 +59,26 @@ sub switch
 		my $matched = 0;
 		if ($type eq 'block')
 		{
-			lexalias($condition, $_, $pad->{$_}) for keys %$pad;
+			set_closed_over($condition, $pad);
 			$matched = !!$condition->(@args);
 		}
 		else
 		{
 			TERM: for my $termexpr (@$condition)
 			{
-				lexalias($termexpr, $_, $pad->{$_}) for keys %$pad;
+				set_closed_over($termexpr, $pad);
 				my $term = $termexpr->(@args);
 				$match->($var, $term) ? (++$matched && last TERM) : next TERM;
 			}
 		}
 		
-		lexalias($block, $_, $pad->{$_}) for keys %$pad;
+		set_closed_over($block, $pad);
 		goto $block if $matched;
 	}
 	
 	if ($default)
 	{
-		lexalias($default, $_, $pad->{$_}) for keys %$pad;
+		set_closed_over($default, $pad);
 		goto $default;
 	}
 	return;
@@ -399,6 +400,34 @@ This module can also re-export the C<match> function from L<match::simple>,
 but not by default.
 
    use Switcheroo qw( match switch );
+
+=head1 HINTS
+
+Switcheroo intentionally works nicely with L<Types::Standard> and other
+L<Type::Tiny>-based type libraries:
+
+   use Switcheroo;
+   use Types::Standard -types;
+   
+   switch ($value) {
+      case Int:       say "it's an integer";
+      case ArrayRef:  say "it's an array ref";
+      case HashRef:   say "it's a hash ref";
+   }
+
+It also plays well with L<Smart::Match>:
+
+   use Switcheroo;
+   use Smart::Match qw( range at_least );
+   
+   switch ($value) {
+      case range(0, 10):    say "small";
+      case range(11, 100):  say "medium";
+      case at_least(101):   say "large";
+   }
+
+This is all thanks to L<match::simple> which respects the overloaded
+C<< ~~ >> operator.
 
 =head1 CAVEATS
 

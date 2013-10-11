@@ -17,3 +17,5 @@ t/01basic.t
 t/02pod-eg.t
 t/03callerargs.t
 t/04closure.t
+t/05typetiny.t
+t/06smartmatch.t

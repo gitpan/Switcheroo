@@ -125,6 +125,33 @@ DESCRIPTION
 
        use Switcheroo qw( match switch );
 
+HINTS
+    Switcheroo intentionally works nicely with Types::Standard and other
+    Type::Tiny-based type libraries:
+
+       use Switcheroo;
+       use Types::Standard -types;
+   
+       switch ($value) {
+          case Int:       say "it's an integer";
+          case ArrayRef:  say "it's an array ref";
+          case HashRef:   say "it's a hash ref";
+       }
+
+    It also plays well with Smart::Match:
+
+       use Switcheroo;
+       use Smart::Match qw( range at_least );
+   
+       switch ($value) {
+          case range(0, 10):    say "small";
+          case range(11, 100):  say "medium";
+          case at_least(101):   say "large";
+       }
+
+    This is all thanks to match::simple which respects the overloaded `~~`
+    operator.
+
 CAVEATS
     Internally a lot of parts of code are passed around as coderefs, so
     certain things might not work how you'd expect inside `switch`:

@@ -37,8 +37,6 @@
       },
       "runtime" : {
          "requires" : {
-            "Devel::Caller" : "0",
-            "Devel::LexAlias" : "0.05",
             "Exporter::Tiny" : "0.026",
             "PadWalker" : "0",
             "Parse::Keyword" : "0.06",
@@ -47,15 +45,20 @@
          }
       },
       "test" : {
+         "recommends" : {
+            "Smart::Match" : "0.007",
+            "Types::Standard" : "0.001"
+         },
          "requires" : {
-            "Test::More" : "0.96"
+            "Test::More" : "0.96",
+            "Test::Requires" : "0.06"
          }
       }
    },
    "provides" : {
       "Switcheroo" : {
          "file" : "lib/Switcheroo.pm",
-         "version" : "0.007"
+         "version" : "0.008"
       }
    },
    "release_status" : "stable",
@@ -73,5 +76,5 @@
          "web" : "https://github.com/tobyink/p5-switcheroo"
       }
    },
-   "version" : "0.007"
+   "version" : "0.008"
 }

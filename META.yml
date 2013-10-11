@@ -4,6 +4,7 @@ author:
   - 'Toby Inkster (TOBYINK) <tobyink@cpan.org>'
 build_requires:
   Test::More: 0.96
+  Test::Requires: 0.06
 configure_requires:
   ExtUtils::MakeMaker: 6.17
 dynamic_config: 0
@@ -25,10 +26,8 @@ optional_features: {}
 provides:
   Switcheroo:
     file: lib/Switcheroo.pm
-    version: 0.007
+    version: 0.008
 requires:
-  Devel::Caller: 0
-  Devel::LexAlias: 0.05
   Exporter::Tiny: 0.026
   PadWalker: 0
   Parse::Keyword: 0.06
@@ -40,4 +39,4 @@ resources:
   homepage: https://metacpan.org/release/Switcheroo
   license: http://dev.perl.org/licenses/
   repository: https://github.com/tobyink/p5-switcheroo
-version: 0.007
+version: 0.008

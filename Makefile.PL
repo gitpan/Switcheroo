@@ -21,18 +21,19 @@ my $meta = {
                         develop   => { recommends => { "Dist::Inkt" => 0.001 } },
                         runtime   => {
                                        requires => {
-                                         "Devel::Caller"   => 0,
-                                         "Devel::LexAlias" => 0.05,
-                                         "Exporter::Tiny"  => 0.026,
-                                         "match::simple"   => 0.004,
-                                         "PadWalker"       => 0,
-                                         "Parse::Keyword"  => 0.06,
-                                         "perl"            => 5.014,
+                                         "Exporter::Tiny" => 0.026,
+                                         "match::simple" => 0.004,
+                                         "PadWalker" => 0,
+                                         "Parse::Keyword" => 0.06,
+                                         "perl" => 5.014,
                                        },
                                      },
-                        test      => { requires => { "Test::More" => 0.96 } },
+                        test      => {
+                                       recommends => { "Smart::Match" => 0.007, "Types::Standard" => 0.001 },
+                                       requires   => { "Test::More" => 0.96, "Test::Requires" => 0.06 },
+                                     },
                       },
-  "provides"       => { Switcheroo => { file => "lib/Switcheroo.pm", version => 0.007 } },
+  "provides"       => { Switcheroo => { file => "lib/Switcheroo.pm", version => 0.008 } },
   "release_status" => "stable",
   "resources"      => {
                         bugtracker   => { web => "http://rt.cpan.org/Dist/Display.html?Queue=Switcheroo" },
@@ -41,7 +42,7 @@ my $meta = {
                         repository   => { type => "git", web => "https://github.com/tobyink/p5-switcheroo" },
                         X_identifier => "http://purl.org/NET/cpan-uri/dist/Switcheroo/project",
                       },
-  "version"        => 0.007,
+  "version"        => 0.008,
 };
 
 my %dynamic_config;
